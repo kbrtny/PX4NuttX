@@ -40,7 +40,6 @@
 /****************************************************************************
  * Included Files
  ****************************************************************************/
-#define CONFIG_USBDEV_TRACE_STRINGS
 #include <nuttx/config.h>
 
 #include <sys/types.h>
@@ -3861,9 +3860,6 @@ int usbdev_register(struct usbdevclass_driver_s *driver)
       /* Setup the USB controller -- enabling interrupts at the USB controller */
 
       stm32_hwreset(priv);
-
-      volatile unsigned long v0 = getreg32(STM32_RCC_CFGR);
-      volatile unsigned long v1 = getreg32(STM32_RCC_CR);
 
       /* Enable USB controller interrupts at the NVIC */
 
